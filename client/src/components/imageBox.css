@@ -1,0 +1,21 @@
+.image {
+    border-radius: 10px;
+    width: 20em;
+}
+
+.imagebox {
+    display:inline-block;
+    border: solid 1px gray;
+    padding: 1em 1em 1em 1em;
+    margin: auto;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 767px) {
+    .image {
+        border-radius: 10px;
+        width: 17em;
+    }
+  }
+  
+

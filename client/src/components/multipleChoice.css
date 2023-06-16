@@ -1,0 +1,17 @@
+.multiple {
+    margin: 20px;
+    align-items: center;
+  }
+  
+  @media (max-width: 768px) {
+    .multiple {
+      margin: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .multiple {
+      margin: 5px;
+    }
+  }
+  

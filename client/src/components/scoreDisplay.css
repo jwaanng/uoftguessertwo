@@ -1,0 +1,10 @@
+.score{
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 6px;
+    /*padding: 8px;*/
+    margin-top: -4px;
+    /* background: #f7f7f7; */
+  }
+  
