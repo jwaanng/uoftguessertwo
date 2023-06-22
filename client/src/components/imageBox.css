@@ -1,6 +1,8 @@
 .image {
     border-radius: 10px;
-    width: 20em;
+    width: 60em;
+    height: 30em;
+    object-fit: cover;
 }
 
 .imagebox {

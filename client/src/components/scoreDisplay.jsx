@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import "./scoreDisplay.css";
+import logo from '../assets/logo.png';
 
 const ScoreDisplay = ( {score} ) => {
 
@@ -11,7 +12,8 @@ const ScoreDisplay = ( {score} ) => {
     
     return(
        <div className={`score ${displayScore > 0 ? 'goodScore' : 'badScore'}`}>
-          <span style={{fontSize: 16}}>👑 </span>{displayScore} {displayScore == 1 ? 'point' : 'points'}
+         <img id='logoImg' src={logo}></img>
+          <div id='scoreNum'>👑 {score} </div>
        </div>
     );
  }

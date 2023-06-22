@@ -33,7 +33,7 @@ const BUILDING_NAMES = [
 ];
 
 
-function MultipleChoice({ correct, onClick }) {
+function MultipleChoice({ correct, onClick, guessing }) {
     const [rOptions, setROptions] = useState([]);
     const [rightAns, setRightAns] = useState(false);
 
@@ -51,6 +51,7 @@ function MultipleChoice({ correct, onClick }) {
           if (rOptions.indexOf(randomOption) === -1) {
             rOptions.push(randomOption);
           }
+          console.log(rOptions);
         }
         
         for (let i = rOptions.length - 1; i > 0; i--) {
@@ -66,13 +67,14 @@ function MultipleChoice({ correct, onClick }) {
       const isCorrect = option === correct;
       setRightAns(isCorrect);
       onClick(isCorrect);
+      
     };
 
     // TODO: figure out how to use the rightAns prop to change state of choice in app.jsx, implement scoring
 
     useEffect(() => {
         makeOptions();
-    }, [correct]);
+    }, [guessing, correct]);
   
     return (
         <div className='multiple' >

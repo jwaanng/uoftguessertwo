@@ -4,21 +4,28 @@ import axios from 'axios';
 
 import ImageBox from "./components/imageBox";
 import MultipleChoice from "./components/multipleChoice";
+import ScoreKeeper from "./components/scoreDisplay";
 
 const API = axios.create({
   baseURL: 'http://localhost:5500',
 });
 
 const WIN_QUIPS = [
-  "WOWOWO",
+  "WOWOWOWWOWOWOWOWOW",
   "NICE",
-  "WOOO"
+  "YOU KNOW THIS SCHOOL WELL!",
+  "Good Job", 
+  "Walking GPS?",
+  "Yes"
 ];
 
 const LOSE_QUIPS = [
-  "SHITTER", 
+  "NAH close i guess?", 
   "RIP",
-  "DUMB LOL"
+  "TRY AGAIN :((((",
+  "Unfortunately :(",
+  "Take some geography classes!",
+  "Hmm..."
 ]
 
 function App() {
@@ -53,10 +60,11 @@ function App() {
   const setImage = async () => {
     try {
       getRandomImage().then((p) => setCurrImage(p));
-      setGuessing(true);
+      // setGuessing(true);
       setChoice(null);
       setCorrectChoice(null);
-      console.log('hi', currImage.code);
+      // console.log('hi', currImage.code);
+      console.log('si', guessing);
     } catch (error) {
       console.error('Error setting image:', error); 
     }
@@ -92,7 +100,8 @@ function App() {
       setMessage(getLoseQuip());
       console.log("app false", message);
     }
-    setGuessing(false);
+    setGuessing(!guessing);
+    console.log("ha", guessing);
     setImage();
   };
   
@@ -103,11 +112,13 @@ function App() {
 
   return (
     <div className="App">
+      <ScoreKeeper score={score} />
+      <hr></hr>
+      <h1 id='msg'>{message}</h1>
       {currImage && (
         <ImageBox imageUrl={currImage.url}/>
       )}
-      <MultipleChoice correct={currImage.code} onClick={handleAnswer} />
-      <p>{score}</p>
+      <MultipleChoice correct={currImage.location} onClick={handleAnswer} guessing={guessing}/>
 
     </div>
   );
